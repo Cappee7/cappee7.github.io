@@ -1,2 +1,8 @@
-h1
-{ color: blue; }
+﻿body {
+	font-family:Calibri;
+	color:black;
+	margin:0px;
+	font-style:normal;
+	font-weight:300;
+	background-color:white;
+}

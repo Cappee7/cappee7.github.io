@@ -1,5 +1,84 @@
-h1
-{ color: black; }
+﻿body {
+	font-family:Calibri;
+	color:white;
+	margin:0px;
+	font-style:normal;
+	font-weight:300;
+	background-color:#333333
+}
 
-body
-{ background-color: #F0E6C5; }
+.clearfix::after {
+  content:"";
+  clear:both;
+  display:table;
+}
+
+.clearfix {
+  overflow:auto;
+}
+
+.page-wrapper{
+	max-width:1300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.top-banner{
+	width:100%;
+	height:240px;
+	padding-top:15px;
+	background-image:url('../media/banner1.png');
+	background-position:center;
+	background-size:cover;
+}
+
+#logo{
+	width:35%;
+	float:right;
+	margin-right:20px;
+	max-width:200px;	
+	text-align:center;
+}
+
+.top-banner img{
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
+.top-banner h1{
+	font-size:24px;	
+	font-family:"Courier New";
+	font-style:normal;
+	font-weight:300;
+	color:white;
+	text-align:center;
+}
+
+nav ul{
+	text-align:center;
+	list-style-type:none;
+	padding-left:0px;
+}
+
+nav a{
+	text-decoration:none;
+	color:white;
+	display:block;
+	margin-bottom:4px;
+	background-color:#000066;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:10px;
+	font-size:1.3em;	
+	font-family:"Courier New";
+	font-style:normal;
+	font-weight:400;
+	color:white;
+	text-align:center;
+
+}
+
+nav a:hover{
+	background-color:#336699;
+}

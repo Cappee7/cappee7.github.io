@@ -6,16 +6,16 @@
 		echo "Failed to connect to MySQL: " .mysqli_connect_error();
 	
 	//Build query
-	$sql = "SELECT GameName, GameGenre, GameYear FROM Games";
+	$sql = "SELECT name, genre, year, console FROM retrogames";
 	
 	// Add search criteria, if provided
 	if($_POST['searchName'] != "") 
 	{
-		$sql.= " WHERE GameName LIKE '%" . $_POST['searchName'] . "%'";
+		$sql.= " WHERE name LIKE '%" . $_POST['searchName'] . "%'";
 	}
 	else 
 	{
-		$sql = "SELECT GameName, GameGenre, GameYear FROM Games";
+		$sql = "SELECT name, genre, year, console FROM retrogames";
 	}		
 	
 	//Run SQL query
@@ -33,7 +33,7 @@
 		//Loops to print games.
 		while($row = mysqli_fetch_assoc($result))
 		{
-			echo $row['GameName']. " - ". $row['GameGenre'] ."<br>";
+			echo $row['name']. " - ". $row['genre']. " - ". $row['year']. " - ". $row['console'] ."<br>";
 		}
 	}	
 ?>

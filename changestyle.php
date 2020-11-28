@@ -24,6 +24,6 @@
        <input type="submit" name="changeStyle" value="1"><BR>
        <input type="submit" name="changeStyle" value="2"><BR>
      </form>
-     <p><a href="homepage.php">Back to homepage</a></p>
+     <p><a href="index.php">Back to homepage</a></p>
    </body>
  </html>
