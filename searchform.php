@@ -6,16 +6,27 @@
 		echo "Failed to connect to MySQL: " .mysqli_connect_error();
 	
 	//Build query
-	$sql = "SELECT name, genre, year, console FROM retrogames";
+	$sql = "SELECT * FROM retrogames";
+	
+	$termName = $_POST['searchName'];
+	$termGenre = $_POST['searchGenre'];
 	
 	// Add search criteria, if provided
-	if($_POST['searchName'] != "") 
+	if($termName != "" && $termGenre == "") 
 	{
-		$sql.= " WHERE name LIKE '%" . $_POST['searchName'] . "%'";
+		$sql.= " WHERE name LIKE '%{$termName}%'";
+	}
+	else if($termName == "" && $termGenre != "") 
+	{
+		$sql.= " WHERE genre LIKE '%{$termGenre}%'";
+	}
+	else if($termName != "" && $termGenre != "") 
+	{
+		$sql.= " WHERE name LIKE '%{$termName}%' AND genre LIKE '%{$termGenre}%'";
 	}
 	else 
 	{
-		$sql = "SELECT name, genre, year, console FROM retrogames";
+		$sql = "SELECT * FROM retrogames";
 	}		
 	
 	//Run SQL query

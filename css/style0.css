@@ -1,10 +1,10 @@
 ﻿body {
-	font-family:Calibri;
+	font-family:Arial;
 	color:white;
 	margin:0px;
 	font-style:normal;
 	font-weight:300;
-	background-color:#333333
+	background-color:#333333;
 }
 
 .clearfix::after {
@@ -19,6 +19,7 @@
 
 .page-wrapper{
 	max-width:1300px;
+	min-width: 509px; /*Remove this is the resizing doesn't work*/
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -33,9 +34,9 @@
 }
 
 #logo{
-	width:35%;
+	width:32%;
 	float:right;
-	margin-right:20px;
+	margin-right:33px;
 	max-width:200px;	
 	text-align:center;
 }
@@ -55,9 +56,23 @@
 	text-align:center;
 }
 
+.search-bar{
+	font-size:14px;	
+	font-family:Arial;
+	font-style:normal;
+	font-weight:300;
+	color:white;
+	text-align:left;
+}
+
+#bar1{
+	width:43%;
+}
+
 nav ul{
 	text-align:center;
 	list-style-type:none;
+	font-weight:300;
 	padding-left:0px;
 }
 
@@ -66,19 +81,155 @@ nav a{
 	color:white;
 	display:block;
 	margin-bottom:4px;
-	background-color:#000066;
+	background-color:#501e7d;
 	padding-top:5px;
 	padding-bottom:5px;
 	padding-right:10px;
-	font-size:1.3em;	
+	font-size:1.1em;	
 	font-family:"Courier New";
 	font-style:normal;
 	font-weight:400;
 	color:white;
 	text-align:center;
-
+	border-style:solid;
+	border-width:thin;
 }
 
 nav a:hover{
-	background-color:#336699;
+	font-weight: bold;
+	background-color:#0B0C57;
+}
+
+h2, h3{
+	font-size: 1.4em;
+	color:#CE47EA;
+}
+
+h4{
+	font-weight: 300;
+	color:white;
+}
+
+h5 {
+	font-style: normal;
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+}
+
+.main{
+	width:96%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.container-featured{
+	margin:2%;
+}
+
+.featured-games{
+	display:block;
+	width:100%;
+}
+
+#art1{
+	background-image:url('../media/zelda1-art.png');
+}
+
+#art2{
+	background-image:url('../media/mario1-art.png');
+}
+
+#art3{
+	background-image:url('../media/duckhunt-art.png');
+}
+
+#art4{
+	background-image:url('../media/tetris-art.png');
+}
+
+.featured-img{
+	width:220px;
+	height:301px;
+	background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	border-style:solid;
+	border-width:thick;
+}
+
+.featured-games{
+	font-size: 15px;
+	text-align:center;
+}
+
+.featured{
+	width:48%;
+	margin-left:1%;
+	margin-right:1%;
+	float:left;
+	box-sizing: border-box;
+}
+
+#gb1{
+	background-image:url('../media/pokemonred-art.png');
+}
+
+#gb2{
+	background-image:url('../media/marioland-art.jpg');
+}
+
+#gb3{
+	background-image:url('../media/drmario-art.jpg');
+}
+
+#gb4{
+	background-image:url('../media/kirby-art.png');
+}
+
+.featured-img-gb{
+	width:220px;
+	height:220px;
+	background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	border-style:solid;
+	border-width:thick;
+}
+
+.footer{
+	width:100%;
+	background:#1e1e1e;
+	padding: 20x;
+	font-size: 12px;
+	text-align: right;
+	box-sizing: border-box;
+}
+
+@media screen and (min-width:750px){
+nav a {
+	width: 23.4%;
+	float: left;
+}
+
+.search-bar{
+	font-size:18px;
+}
+
+#bar1{
+	width: 56%;
+}
+
+.footer{
+}
+}
+
+@media screen and (min-width:960px){
+.container-featured{
+	float:left;
+	margin-left: 1%;
+	margin-right: 1%;
+	box-sizing: border-box;
+	width: 48%;
+}
 }
