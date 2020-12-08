@@ -1,9 +1,29 @@
-<?php session_start() ?>
+<?php 
+	if(!isset($_SESSION))
+	{	
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, intial-scale=1">
+<meta name="viewport" content="width=device-width">
 <title>Retro Games Catalogue</title>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- jQuery UI library -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script>
+	$(function() {
+		$("#bar1").autocomplete({
+			source: "getdata.php",
+		});
+	});
+</script>
+
 	<?php
 		
 	if (isset($_COOKIE["selectedStyle"])) { // if style has been set
@@ -31,15 +51,14 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="catalogue.php">Catalogue</a></li>					
 					<li><a href="login.php">Login</a></li>							
-					<li><a href="editcat.php">Add To Catalogue</a></li>					
+					<li><a href="editcata.php">Add To Catalogue</a></li>					
 				</ul>
 			</nav>	
 		</header>
 		<main class="main clearfix">
 			<div class="search-bar">
 				<form action="searchform.php" method="POST">
-					<p>Search for a game:
-						<input id="bar1" type="text" name="searchName" />
+						<input id="bar1" type="text" name="searchName" placeHolder="Search for a game..."/>
 						<select id="genre" name="searchGenre">
 							<option value="">All</option>
 							<option value="Action">Action</option>
@@ -50,8 +69,8 @@
 							<option value="Role-Playing">RPG</option>
 							<option value="Sports">Sports</option>
 							</select>
-						<input id="button" type="submit" name ="search" value="Search" />
-						</p>
+						<input id="button" type="submit" name ="search" value="Search" onclick="DoSearch();"/>
+						<div class="result" </div>
 				</form>	
 			</div>		
 			<!-- First Section -->

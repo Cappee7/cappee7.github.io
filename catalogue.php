@@ -1,9 +1,7 @@
 <?php 
+	if(!isset($_SESSION))
+	{	
 	session_start();
-	
-	if(!isset($_SESSION['user_id'])) {
-		include("login.php");
-		exit;
 	}
 ?>
 <!DOCTYPE html>
@@ -35,16 +33,15 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="catalogue.php">Catalogue</a></li>					
 					<li><a href="login.php">Login</a></li>							
-					<li><a href="basket.php">Basket</a></li>					
+					<li><a href="editcata.php">Add To Catalogue</a></li>					
 				</ul>
 			</nav>	
 		</header>
 		<main class="main clearfix">
 			<div class="search-bar">
-				<form action="searchform.php" method="post">
-					<p>Search for a game:
-						<input id="bar1" type="text" name="searchName"</p>
-						<select name="genre" id="genre">
+				<form action="searchform.php" method="POST">
+						<input id="bar1" type="text" name="searchName" placeHolder="Search for a game..." onclick="DoSearch();"/>
+						<select id="genre" name="searchGenre">
 							<option value="">All</option>
 							<option value="Action">Action</option>
 							<option value="Adventure">Adventure</option>
@@ -53,14 +50,14 @@
 							<option value="Puzzle">Puzzle</option>
 							<option value="Role-Playing">RPG</option>
 							<option value="Sports">Sports</option>
-						<input id="button" type="submit" value="Search"</p>
+							</select>
+						<input id="button" type="submit" name ="search" value="Search" />
+						<p id="results"></p>
 				</form>	
 			</div>		
-		</header>
-		<main class="main">
 			<!-- First Section -->
 			<section class="catalogue clearfix">
-				<div class="container-featured">
+				<div class="catalogue-featured">
 				<?php 
 				//Connect to DB server
 				$mysqli = mysqli_connect("localhost", "1905485", "AshOnMYLINUX", "db1905485");
@@ -77,13 +74,13 @@
 				//How many rows got returned?
 				$num_games = mysqli_num_rows($result);
 	
-				print("<p>Here is our full game catalogue.</p>");
+				print("<h2>Here is our full game catalogue.</h2>");
 		
 				//Loops to print games.
 				while($row = mysqli_fetch_assoc($result)) 
 				{
-					echo $row['name']. " - ". $row['genre']. " - ". $row['year']. " - ". $row['console'] ."<br>";
-					echo $row['description']."<br>";
+					echo "<h2>". $row['name']. " - ". $row['genre']. " - ". $row['year']. " - ". $row['console'] ."<br></h2>";
+					echo "<h4>". $row['description']."<br></h4>";
 					echo "<br>";
 				}
 				?>
@@ -92,6 +89,7 @@
 		</main>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
+			<p><a href="register.php">Register</a></p>
 			<p><a href="changestyle.php">Change Style</a></p>
 		</footer>
 	</div>

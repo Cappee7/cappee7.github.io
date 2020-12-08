@@ -9,13 +9,17 @@
 	if (!isset($_SESSION["loggedIn"]))  // a user has not logged in - the SESSION variable has not been set
 
 	$_SESSION["loggedIn"] = true;     // set when a user is authenticated
+		
+	if(!isset($_SESSION['user_id'])) {
+		include("login.php");
+		exit;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, intial-scale=1">
-<meta charset="UFT-8">
-<title>RGC - Login</title>
+<title>RGC - Edit Catalogue</title>
 	<?php
 		
 	if (isset($_COOKIE["selectedStyle"])) { // if style has been set
@@ -25,7 +29,7 @@
 	}
 	?>
 	
-   <!-- Remember to change the css to work with the selection <link rel="stylesheet" href="css/style<?= $style; ?>.css"> -->
+    <!-- Remember to change the css to work with the selection <link rel="stylesheet" href="css/style<?= $style; ?>.css"> -->
 	<link href="css/style0.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -43,44 +47,22 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="catalogue.php">Catalogue</a></li>					
 					<li><a href="login.php">Login</a></li>							
-					<li><a href="editcata.php">Edit Catalogue</a></li>					
+					<li><a href="editcat.php">Edit Catalogue</a></li>					
 				</ul>
 			</nav>	
 		</header>
 		<main class="main clearfix">
-			<form action="" method="post">
-				<input type="text" name="username" placeholder="Username" required>	
-				<input type="text" name="password" placeholder="Password" required>	
-				<input type="submit" name="Login">
-			</form>
-			
-			<?php
-				if(! empty($_POST)) {
-					if(isset($_POST['username']) && isset($_POST['password'])) {		
-						//Connect to DB server
-						$mysqli = mysqli_connect("localhost", "1905485", "AshOnMYLINUX", "db1905485");
-						
-						$sql = $mysqli -> prepare("SELECT * FROM userbase WHERE username = ?");
-						$sql -> bind_param('s', $_POST['username']);
-						$sql -> execute();
-						$result = $sql -> get_result();
-						$user = $result -> fetch_object();
-						
-						//Verify the password and set the session.
-						if(password_verify($_POST['password'], $user -> password)){
-							$_SESSION['user_id'] = $user -> ID;
-						}
-					}
-				}
-			?>
-			
+			<div class="addcatalogue">
+				<h2>Add to Catalogue</h2>
+				
+			</div>
+		</main>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
 			<p><a href="register.php">Register</a></p>
 			<p><a href="changestyle.php">Change Style</a></p>
 		</footer>
-		</main>
-		</div>
+	</div>
 	</body>
 	</html>
 <?php session_destroy(); ?>
