@@ -1,4 +1,4 @@
-<?php
+<?php 
 	if(!isset($_SESSION))
 	{	
 		session_start();
@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width">
-<title>RGC - Login</title>
+<title>RGC - Delete Account</title>
 	<?php
 		
 	if (isset($_COOKIE["selectedStyle"])) { // if style has been set
@@ -78,31 +78,38 @@
 			</div>	
 		</header>
 		<main class="main clearfix">
-			<h2>Login</h2>
-            <form method = "post">
-                <label>Username: </label><input type = "text" name = "username" class = "box"/><br /><br />
-                <label>Password: </label><input type = "password" name = "password" class = "box" /><br/><br />
-                <input type = "submit" value = "Login"/><br />
+			<h2>Delete Account</h2>
+			<form method = "POST">
+                <label>Enter your Username: </label><input type = "text" name = "username" class = "box"/><br /><br />
+                <label>Enter your Password: </label><input type = "password" name = "password" class = "box" /><br/><br />
+                <label>Confirm your Password: </label><input type = "password" name = "confpass" class = "box" /><br/><br />
+                <input type = "submit" value = "Delete Account"/><br />
                 <?php
-	                include("config.php");
+		            include("config.php");
 					if($_SERVER["REQUEST_METHOD"] == "POST") {
 						// username and password sent from form 
 						$myusername = mysqli_real_escape_string($mysqli,$_POST['username']);
 						$mypassword = mysqli_real_escape_string($mysqli,$_POST['password']); 
+						$conpassword = mysqli_real_escape_string($mysqli,$_POST['confpass']); 
 						
-						$sql = "SELECT username FROM userbase WHERE username = '$myusername' AND password = '$mypassword'";
-						$result = mysqli_query($mysqli,$sql);
-						$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-  						$count = mysqli_num_rows($result);
-		
-  						if($count == 1) {
-  							$_SESSION["loggedin"] = true;
-  							$_SESSION["sessionuser"] = $myusername;
-  							echo "<p>Successfully logged in.</p>";
-      					} else {
-	  						echo "<p>Details not found. Please try again or register <a href='register.php'>here</a>.</p>";
-        				}
-    				}
+						if($conpassword != $mypassword)
+						{
+							echo "<p>Passwords do not match.</p>";
+						}
+						else if($conpassword == $mypassword)
+						{
+							$sql = "DELETE FROM userbase WHERE username = '$myusername' AND password = '$mypassword'";
+							if(mysqli_query($mysqli, $sql))
+							{
+								echo "<p>Account successfully deleted.</p>";
+								session_destroy();
+							}
+							else 
+							{
+								echo "<p>Error deleting account." . mysqli_error($mysqli) . "</p>";
+							}
+						}
+					}
                 ?>
             </form>
 		<footer class="footer">

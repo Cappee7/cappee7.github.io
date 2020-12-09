@@ -52,7 +52,7 @@
 							<option value="Sports">Sports</option>
 							</select>
 							
-							<select id="genre" name="searchYear">
+							<select id="year" name="searchYear">
 							<option value="">Year</option>
 							<option value="1984">1984</option>
 							<option value="1985">1985</option>
@@ -71,8 +71,7 @@
 							<option value="1998">1998</option>
 							<option value="1999">1999</option>
 							</select>
-						<input id="button" type="submit" name ="search" value="Search" onclick="DoSearch();"/>
-						<div class="result" </div>
+						<input id="button" type="submit" name ="search" value="Search"/>
 				</form>	
 			</div>	
 			<!-- First Section -->
@@ -109,9 +108,7 @@
 		</main>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
-			<p><a href="register.php">Register</a></p>
-			<p><a href="changestyle.php">Change Style</a></p>
-			<p><a href = "logout.php">Logout</p>
+			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "logout.php">Logout</a></p>
 		</footer>
 	</div>
 	</body>

@@ -16,7 +16,7 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width">
-<title>Retro Games Catalogue</title>
+<title>RGC - Style Selector</title>
    <link rel="stylesheet" href="css/style<?= $thisStyle; ?>.css">
    </head>
 	<body>
@@ -40,16 +40,14 @@
 		</header>
      <h1>Style Selector</h1>
      <form method="post" action="<?= $_SERVER["PHP_SELF"];?>">
-       <label>Style 0</label><input type="submit" name="changeStyle" value="0"><BR>
-       <label>Style 1</label><input type="submit" name="changeStyle" value="1"><BR>
+       <label>Style 0</label><input type="submit" name="changeStyle" value="0" title="Style 1"><BR>
+       <label>Style 1</label><input type="submit" name="changeStyle" value="1" title="Style 2"><BR>
      </form>
      <p><a href="index.php">Back to homepage</a></p>
-	 
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
-			<p><a href="register.php">Register</a></p>
-			<p><a href="changestyle.php">Change Style</a></p>
-			<p><a href = "logout.php">Logout</p>
+			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "logout.php">Logout</a></p>
 		</footer>
+		</div>
    </body>
  </html>

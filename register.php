@@ -7,8 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, intial-scale=1">
-<meta charset="UFT-8">
+<meta name="viewport" content="width=device-width">
 <title>RGC - Register</title>
 	<?php
 		
@@ -40,9 +39,9 @@
 					<li><a href="editcata.php">Edit Catalogue</a></li>					
 				</ul>
 			</nav>	
-						<div class="search-bar">
+			<div class="search-bar">
 				<form action="searchform.php" method="POST">
-						<input id="bar1" type="text" name="searchName" placeHolder="Search for a game..."/>
+						<input id="bar1" type="text" name="searchName" placeHolder="Search for a game..." autocomplete="off"/>
 						<select id="genre" name="searchGenre">
 							<option value="">Genre</option>
 							<option value="Action">Action</option>
@@ -54,7 +53,7 @@
 							<option value="Sports">Sports</option>
 							</select>
 							
-							<select id="genre" name="searchYear">
+							<select id="year" name="searchYear">
 							<option value="">Year</option>
 							<option value="1984">1984</option>
 							<option value="1985">1985</option>
@@ -73,13 +72,14 @@
 							<option value="1998">1998</option>
 							<option value="1999">1999</option>
 							</select>
-						<input id="button" type="submit" name ="search" value="Search" onclick="DoSearch();"/>
-						<div class="result" </div>
-				</form>	
+						<input id="button" type="submit" name ="search" value="Search"/>
+				</form>
+				<div class="result"></div>	
 			</div>	
 		</header>
 		<main class="main clearfix">
-			<form action = "" method = "post">
+			<h2>Register</h2>
+			<form method = "post">
                 <label>Enter a Username: </label><input type = "text" name = "username" class = "box"/><br /><br />
                 <label>Enter a Password: </label><input type = "password" name = "password" class = "box" /><br/><br />
                 <label>Confirm Password: </label><input type = "password" name = "confpass" class = "box" /><br/><br />
@@ -108,7 +108,7 @@
 						
 								if(mysqli_query($mysqli, $sql))
 								{
-									echo "<p>Added to the system.</p>";
+									echo "<p>Account successfully created.</p>";
 								}
 								else
 								{
@@ -125,9 +125,7 @@
             </form>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
-			<p><a href="register.php">Register</a></p>
-			<p><a href="changestyle.php">Change Style</a></p>
-			<p><a href = "logout.php">Logout</p>
+			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "logout.php">Logout</a></p>
 		</footer>
 		</main>
 		</div>
