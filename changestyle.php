@@ -15,9 +15,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, intial-scale=1">
+<meta name="viewport" content="width=device-width">
 <title>Retro Games Catalogue</title>
-   <link rel="stylesheet" href="css/style<?= $style; ?>.css">
+   <link rel="stylesheet" href="css/style<?= $thisStyle; ?>.css">
    </head>
 	<body>
 	<div class="page-wrapper">
@@ -34,22 +34,22 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="catalogue.php">Catalogue</a></li>					
 					<li><a href="login.php">Login</a></li>							
-					<li><a href="editcata.php">Add To Catalogue</a></li>					
+					<li><a href="editcata.php">Edit Catalogue</a></li>					
 				</ul>
 			</nav>	
 		</header>
      <h1>Style Selector</h1>
      <form method="post" action="<?= $_SERVER["PHP_SELF"];?>">
-       <input type="submit" name="changeStyle" value="0"><BR>
-       <input type="submit" name="changeStyle" value="1"><BR>
-       <input type="submit" name="changeStyle" value="2"><BR>
+       <label>Style 0</label><input type="submit" name="changeStyle" value="0"><BR>
+       <label>Style 1</label><input type="submit" name="changeStyle" value="1"><BR>
      </form>
      <p><a href="index.php">Back to homepage</a></p>
 	 
-	 <footer class="footer">
-		<h4>This website was designed with love by Ashley Davies.</h4>
-		<p><a href="register.php">Register</a></p>
-		<p><a href="changestyle.php">Change Style</a></p>
-	</footer>
+		<footer class="footer">
+			<h4>This website was designed with love by Ashley Davies.</h4>
+			<p><a href="register.php">Register</a></p>
+			<p><a href="changestyle.php">Change Style</a></p>
+			<p><a href = "logout.php">Logout</p>
+		</footer>
    </body>
  </html>

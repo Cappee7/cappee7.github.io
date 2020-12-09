@@ -8,8 +8,7 @@
 	
 	
 	//Connect to DB server
-	$mysqli = mysqli_connect("localhost", "1905485", "AshOnMYLINUX", "db1905485");
-	
+	include('config.php');	
 	if (mysqli_connect_errno($mysqli))  
 		echo "Failed to connect to MySQL: " .mysqli_connect_error();
 		

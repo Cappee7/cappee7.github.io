@@ -1,8 +1,249 @@
 ﻿body {
-	font-family:Calibri;
+	font-family:Arial;
 	color:black;
 	margin:0px;
 	font-style:normal;
 	font-weight:300;
 	background-color:white;
+}
+
+.clearfix::after {
+  content:"";
+  clear:both;
+  display:table;
+}
+
+.clearfix {
+  overflow:auto;
+}
+
+.page-wrapper{
+	max-width:1300px;
+	min-width: 509px; /*Remove this is the resizing doesn't work*/
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.top-banner{
+	width:100%;
+	height:240px;
+	padding-top:15px;
+	background-image:url('../media/banner1.png');
+	background-position:center;
+	background-size:cover;
+}
+
+#logo{
+	width:32%;
+	float:right;
+	margin-right:33px;
+	max-width:200px;	
+	text-align:center;
+}
+
+.top-banner img{
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;	
+}
+
+.top-banner h1{
+	font-size:24px;	
+	font-family:"Courier New";
+	font-style:normal;
+	font-weight:300;
+	color:black;
+	text-align:center;
+}
+
+.search-bar{
+	font-size:14px;	
+	font-family:Arial;
+	font-style:normal;
+	font-weight:300;
+	color:black;
+	text-align:left;
+}
+
+#bar1{
+	width:53%;
+}
+
+nav ul{
+	text-align:center;
+	list-style-type:none;
+	font-weight:300;
+	padding-left:0px;
+}
+
+nav a{
+	text-decoration:none;
+	color:white;
+	display:block;
+	margin-bottom:4px;
+	background-color:white;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:10px;
+	font-size:1.1em;	
+	font-family:"Courier New";
+	font-style:normal;
+	font-weight:400;
+	color:black;
+	text-align:center;
+	border-style:solid;
+	border-width:thin;
+}
+
+nav a:hover{
+	font-weight: bold;
+	background-color:grey;
+}
+
+h2, h3{
+	font-size: 1.4em;
+	color:black;
+}
+
+h4{
+	font-weight: 300;
+	color:black;
+}
+
+h5 {
+	font-style: normal;
+	font-size: 20px;
+	text-decoration: underline;
+	text-align: center;
+}
+
+.catalogue{
+	width:100%;
+}
+
+.main{
+	width:96%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.container-featured{
+	margin:2%;
+}
+
+.featured-games{
+	display:block;
+	width:100%;
+}
+
+#art1{
+	background-image:url('../media/zelda1-art.png');
+}
+
+#art2{
+	background-image:url('../media/mario1-art.png');
+}
+
+#art3{
+	background-image:url('../media/duckhunt-art.png');
+}
+
+#art4{
+	background-image:url('../media/tetris-art.png');
+}
+
+.featured-img{
+	width:220px;
+	height:301px;
+	background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	border-style:solid;
+	border-width:thick;
+}
+
+.featured-games{
+	font-size: 15px;
+	text-align:center;
+}
+
+.featured{
+	width:48%;
+	margin-left:1%;
+	margin-right:1%;
+	float:left;
+	box-sizing: border-box;
+}
+
+#gb1{
+	background-image:url('../media/pokemonred-art.png');
+}
+
+#gb2{
+	background-image:url('../media/marioland-art.jpg');
+}
+
+#gb3{
+	background-image:url('../media/drmario-art.jpg');
+}
+
+#gb4{
+	background-image:url('../media/kirby-art.png');
+}
+
+.featured-img-gb{
+	width:220px;
+	height:220px;
+	background-size: cover;
+	margin-left:auto;
+	margin-right:auto;
+	border-style:solid;
+	border-width:thick;
+}
+
+.footer{
+	width:100%;
+	background:grey;
+	padding: 20x;
+	font-size: 12px;
+	text-align: right;
+	box-sizing: border-box;
+}
+
+table, th, tr{
+	border: 1px solid black;
+	float: left;
+	width: 100%;
+}
+
+@media screen and (min-width:750px){
+nav a {
+	width: 23.4%;
+	float: left;
+}
+
+.search-bar{
+	font-size:18px;
+}
+
+#bar1{
+	width: 68%;
+}
+
+.footer{
+}
+}
+
+@media screen and (min-width:960px){
+.container-featured{
+	float:left;
+	margin-left: 1%;
+	margin-right: 1%;
+	box-sizing: border-box;
+	width: 48%;
+}
+
+#bar1{
+	width: 75%;
+}
 }
