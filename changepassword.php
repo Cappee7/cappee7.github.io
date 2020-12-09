@@ -1,4 +1,4 @@
-<?php
+<?php 
 	if(!isset($_SESSION))
 	{	
 		session_start();
@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width">
-<title>RGC - Login</title>
+<title>RGC - Change Password</title>
 	<?php
 		
 	if (isset($_COOKIE["selectedStyle"])) { // if style has been set
@@ -78,31 +78,59 @@
 			</div>	
 		</header>
 		<main class="main clearfix">
-			<h2>Login</h2>
-            <form method = "post">
-                <label>Username: </label><input type = "text" name = "username" class = "box"/><br /><br />
-                <label>Password: </label><input type = "password" name = "password" class = "box" /><br/><br />
-                <input type = "submit" value = "Login"/><br />
+			<h2>Change Password</h2>
+			<form method = "POST">
+                <label>Enter your Username: </label><input type = "text" name = "username" class = "box"/><br /><br />
+                <label>Enter your old Password: </label><input type = "password" name = "oldpassword" class = "box" /><br/><br />
+                <label>Enter your new Password: </label><input type = "password" name = "newpassword" class = "box" /><br/><br />
+                <label>Confirm your new Password: </label><input type = "password" name = "confpass" class = "box" /><br/><br />
+                <input type = "submit" value = "Change Password"/><br />
                 <?php
-	                include("config.php");
+		            include("config.php");
 					if($_SERVER["REQUEST_METHOD"] == "POST") {
 						// username and password sent from form 
 						$myusername = mysqli_real_escape_string($mysqli,$_POST['username']);
-						$mypassword = mysqli_real_escape_string($mysqli,$_POST['password']); 
-						
-						$sql = "SELECT username FROM userbase WHERE username = '$myusername' AND password = '$mypassword'";
-						$result = mysqli_query($mysqli,$sql);
-						$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-  						$count = mysqli_num_rows($result);
-		
-  						if($count == 1) {
-  							$_SESSION["loggedin"] = true;
-  							$_SESSION["sessionuser"] = $myusername;
-  							echo "<p>Successfully logged in.</p>";
-      					} else {
-	  						echo "<p>Details not found. Please try again or register <a href='register.php'>here</a>.</p>";
-        				}
-    				}
+						$myoldpassword = mysqli_real_escape_string($mysqli,$_POST['oldpassword']); 
+						$mynewpassword = mysqli_real_escape_string($mysqli,$_POST['newpassword']); 
+						$conpassword = mysqli_real_escape_string($mysqli,$_POST['confpass']); 
+												
+						if($myusername == "")
+						{
+							echo "<p>Please enter a username.</p>";
+						}
+						else 
+						{
+							$sql = "SELECT password FROM userbase WHERE username = '$myusername' AND password = '$myoldpassword'";
+							
+							if(mysqli_query($mysqli,$sql))
+							{
+								if($conpassword != $mynewpassword)
+								{
+									echo "<p>Passwords do not match.</p>";
+								}
+								else if($conpassword == $mynewpassword && $mynewpassword != "")
+								{
+									$sql = "UPDATE userbase SET password = '$mynewpassword' WHERE username = '$myusername'";
+									if(mysqli_query($mysqli, $sql))
+									{
+										echo "<p>Password successfully updated.</p>";
+									}
+									else 
+									{
+										echo "<p>Error changing password." . mysqli_error($mysqli) . "</p>";
+									}
+								}
+								else 
+								{
+									echo "<p>Password cannot be blank.</p>";
+								}
+							}
+							else 
+							{
+								echo "<p>Error changing password.</p>";
+							}
+						}
+					}
                 ?>
             </form>
 		<footer class="footer">

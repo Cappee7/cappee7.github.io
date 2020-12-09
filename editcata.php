@@ -8,6 +8,8 @@
 		include ("login.php");
 	 	exit;
  	}
+ 	
+ 	ini_set('display_errors',0)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,16 +87,42 @@
 		<main class="main clearfix">
 			<div class="addcatalogue">
 				<h2>Add to Catalogue</h2>
-				
+					<form action="addtocata.php" method="POST">
+						<input id="nameBar" type="text" name="addName" placeHolder="Enter the games name."/>
+						<input id="genreBar" type="text" name="addGenre" placeHolder="Enter the games genre."/>
+						<input id="yearBar" type="text" name="addYear" placeHolder="Enter the games year."/>
+						<input id="consoleBar" type="text" name="addConsole" placeHolder="Enter the games console."/>
+						<input id="descriptionBar" type="text" name="addDescription" placeHolder="Enter a description."/>
+						<input id="button" type="submit" name ="addCata" value="Add to catalogue"/>
+					</form>
 			</div>
 			<div class="removecatalogue">
 				<h2>Remove from Catalogue</h2>
-					
+					<form action="delcata.php" method="POST">
+						<select id="name" name="removeName">
+						<option value="None">None</option>
+						<?php
+							include('config.php');
+							
+							$sql = "SELECT * FROM retrogames";
+							$result = mysqli_query($mysqli, $sql);
+							while ($row = mysqli_fetch_array($result)) 
+							{
+							echo '<option>'.$row['name'].'</option>';
+							}
+						?>
+						</select>
+						<input id="button" type="submit" name ="delCata" value="Remove from catalogue"/>
+					</form>
+					<?php
+						if( $_GET['status'] == 'success')
+							echo '<p>Database edited successfully</p>';
+					?>
 			</div>
 		</main>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
-			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "logout.php">Logout</a></p>
+			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "changepassword.php">Change Password</a> <a href = "logout.php">Logout</a></p>
 		</footer>
 	</div>
 	</body>

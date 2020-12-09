@@ -38,15 +38,52 @@
 				</ul>
 			</nav>	
 		</header>
-     <h1>Style Selector</h1>
+			<div class="search-bar">
+				<form action="searchform.php" method="POST">
+						<input id="bar1" type="text" name="searchName" placeHolder="Search for a game..." autocomplete="off"/>
+						<select id="genre" name="searchGenre">
+							<option value="">Genre</option>
+							<option value="Action">Action</option>
+							<option value="Adventure">Adventure</option>
+							<option value="Fighting">Fighting</option>
+							<option value="Platform">Platform</option>
+							<option value="Puzzle">Puzzle</option>
+							<option value="Role-Playing">RPG</option>
+							<option value="Sports">Sports</option>
+							</select>
+							
+							<select id="year" name="searchYear">
+							<option value="">Year</option>
+							<option value="1984">1984</option>
+							<option value="1985">1985</option>
+							<option value="1986">1986</option>
+							<option value="1987">1987</option>
+							<option value="1988">1988</option>
+							<option value="1989">1989</option>
+							<option value="1990">1990</option>
+							<option value="1991">1991</option>
+							<option value="1992">1992</option>
+							<option value="1993">1993</option>
+							<option value="1994">1994</option>
+							<option value="1995">1995</option>
+							<option value="1996">1996</option>
+							<option value="1997">1997</option>
+							<option value="1998">1998</option>
+							<option value="1999">1999</option>
+							</select>
+						<input id="button" type="submit" name ="search" value="Search"/>
+				</form>
+				<div class="result"></div>	
+			</div>		
+     <h2>Style Selector</h2>
      <form method="post" action="<?= $_SERVER["PHP_SELF"];?>">
-       <label>Style 0</label><input type="submit" name="changeStyle" value="0" title="Style 1"><BR>
-       <label>Style 1</label><input type="submit" name="changeStyle" value="1" title="Style 2"><BR>
+       <label>Style 0</label><input type="submit" name="changeStyle" value="0"<BR>
+       <label>Style 1</label><input type="submit" name="changeStyle" value="1"<BR>
      </form>
      <p><a href="index.php">Back to homepage</a></p>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
-			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "logout.php">Logout</a></p>
+			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "changepassword.php">Change Password</a> <a href = "logout.php">Logout</a></p>
 		</footer>
 		</div>
    </body>

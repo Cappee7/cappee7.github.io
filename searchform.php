@@ -11,9 +11,8 @@
 		$style = 0;
 	}
 	?>
-	
-   <!-- Remember to change the css to work with the selection <link rel="stylesheet" href="css/style<?= $style; ?>.css"> -->
-	<link href="css/style0.css" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" href="css/style<?= $style; ?>.css">
 	</head>
 	<body>
 	<div class="page-wrapper">
@@ -127,21 +126,21 @@
 	$num_games = mysqli_num_rows($result);
 	
 	if($num_games == 0)
-		print("<p>We currently don't have that game catagoried.</p>");
+		print("<h3>We currently don't have that game catalogued.</h3>");
 	else
 	{
-		print("<p>We found $num_games game(s) matching that criteria.</p>");
+		print("<h3>We found $num_games game(s) matching that criteria.</h3>");
 		
 		//Loops to print games.
 		while($row = mysqli_fetch_assoc($result))
 		{
-			echo $row['name']. " - ". $row['genre']. " - ". $row['year']. " - ". $row['console'] ."<br>";
+			echo "<p>" . $row['name']. " - ". $row['genre']. " - ". $row['year']. " - ". $row['console'] ."</p>";
 		}
 	}	
 ?>
 		<footer class="footer">
 			<h4>This website was designed with love by Ashley Davies.</h4>
-			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "logout.php">Logout</a></p>
+			<p><a href="changestyle.php">Change Style</a> <a href="register.php">Register</a> <a href = "deleteaccount.php">Delete Account</a> <a href = "changepassword.php">Change Password</a> <a href = "logout.php">Logout</a></p>
 		</footer>
 		</main>
 		</div>

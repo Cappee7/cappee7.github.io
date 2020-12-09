@@ -224,7 +224,8 @@ h5 {
 	width:100%;
 	background:#1e1e1e;
 	padding: 20x;
-	font-size: 12px;
+	font-size: 15px;
+	font-weight: 400;
 	text-align: right;
 	box-sizing: border-box;
 }
