@@ -254,6 +254,10 @@ nav a {
 }
 }
 
+.text-center {
+    text-align: center;
+}
+
 @media screen and (min-width:960px){
 .container-featured{
 	float:left;

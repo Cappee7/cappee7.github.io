@@ -49,7 +49,7 @@
 
 .top-banner h1{
 	font-size:24px;	
-	font-family:"Courier New";
+	font-family: 'Arcade Classic', cursive;
 	font-style:normal;
 	font-weight:300;
 	color:black;
@@ -232,6 +232,10 @@ nav a {
 
 .footer{
 }
+}
+
+.text-center {
+    text-align: center;
 }
 
 @media screen and (min-width:960px){
