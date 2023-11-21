@@ -4,7 +4,7 @@
 	margin:0px;
 	font-style:normal;
 	font-weight:300;
-	background-color:#333333;
+	background-color:#121212;
 }
 
 .clearfix::after {
@@ -265,6 +265,13 @@ nav a {
 	margin-right: 1%;
 	box-sizing: border-box;
 	width: 48%;
+}
+
+.small-button {
+    padding: 5px 10px;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0 5px;
 }
 
 #bar1{
