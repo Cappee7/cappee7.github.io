@@ -1,131 +1,48 @@
 <?php
 session_start();
 
-$style = isset($_COOKIE["selectedStyle"]) ? $_COOKIE["selectedStyle"] : 0;
+// Check if the style has been set in the session, otherwise use the default style
+$style = isset($_SESSION['style']) ? $_SESSION['style'] : 'css/darkmode.css';
+
+// Handle form submission to switch styles
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['switch-style'])) {
+    $style = ($style === 'css/darkmode.css') ? 'css/lightmode.css' : 'css/darkmode.css';
+    $_SESSION['style'] = $style;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta name="viewport" content="width=device-width">
-	<title>Retro Games Catalogue</title>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('.search-box input[type="text"]').on("keyup input", function () {
-				var inputVal = $(this).val();
-				var resultDropdown = $(this).siblings(".result");
-
-				if (inputVal.length) {
-					$.get("ajaxsearch.php", { term: inputVal }).done(function (data) {
-						resultDropdown.html(data);
-					});
-				} else {
-					resultDropdown.empty();
-				}
-			});
-
-			$(document).on("click", ".result p", function () {
-				var searchInput = $(this).parents(".search-box").find('input[type="text"]');
-				searchInput.val($(this).text());
-				$(this).parent(".result").empty();
-			});
-		});
-	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cappee</title>
+    <link rel="stylesheet" href="<?php echo $style; ?>">
 </head>
-
 <body>
-	<link rel="stylesheet" href="css/style<?= $style; ?>.css">
-	<div class="page-wrapper">
-		<?php include("header.php"); ?>
 
-		<main class="main clearfix">
-			<?php include("search-bar.php"); ?>
+<header>
+    <h1>Cappee</h1>
+</header>
 
-			<!-- Featured Games Section -->
-			<section class="featured-games clearfix">
-				<h5>Featured NES Games</h5>
-				<div class="container-featured">
-					<!-- Game 1 -->
-					<div class="featured">
-						<div class="featured-img" id="art1"></div>
-						<h2>The Legend of Zelda</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.php">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
 
-					<!-- Game 2 -->
-					<div class="featured">
-						<div class="featured-img" id="art2"></div>
-						<h2>Super Mario Bros.</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
-				</div>
+<section>
+    <p>W.I.P.</p>
+    <p>Current date and time: <?php echo date('Y-m-d H:i:s'); ?></p>
+</section>
 
-				<div class="container-featured">
-					<!-- Game 3 -->
-					<div class="featured">
-						<div class="featured-img" id="art3"></div>
-						<h3>Duck Hunt</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
+<footer>
+    <form method="post">
+        <button type="submit" name="switch-style">Switch Style</button>
+    </form>
+    <p>&copy; <?php echo date('Y'); ?> Cappee. All rights reserved.</p>
+</footer>
 
-					<!-- Game 4 -->
-					<div class="featured">
-						<div class="featured-img" id="art4"></div>
-						<h3>Tetris</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
-				</div>
-			</section>
-
-			<!-- Featured Game Boy Games Section -->
-			<section class="featured-games clearfix">
-				<h5>Featured Game Boy Games</h5>
-				<div class="container-featured">
-					<!-- Game 1 -->
-					<div class="featured">
-						<div class="featured-img-gb" id="gb1"></div>
-						<h2>Pokemon Red</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
-
-					<!-- Game 2 -->
-					<div class="featured">
-						<div class="featured-img-gb" id="gb2"></div>
-						<h2>Super Mario Land</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
-				</div>
-
-				<div class="container-featured">
-					<!-- Game 3 -->
-					<div class="featured">
-						<div class="featured-img-gb" id="gb3"></div>
-						<h3>Dr. Mario</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
-
-					<!-- Game 4 -->
-					<div class="featured">
-						<div class="featured-img-gb" id="gb4"></div>
-						<h3>Kirby's Dream Land</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-						</p>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<?php include("footer.php"); ?>
-	</div>
 </body>
-
 </html>
