@@ -11,38 +11,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['switch-style'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cappee</title>
-    <link rel="stylesheet" href="<?php echo $style; ?>">
-</head>
-<body>
+<?php include 'header.php'; ?>
 
-<header>
-    <h1>Cappee</h1>
-</header>
+<section class="othersection">
 
-<!-- Navigation Bar -->
-<nav>
-    <a href="index.php">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-</nav>
-
-<section>
-    <p>W.I.P.</p>
-    <p>Current date and time: <?php echo date('Y-m-d H:i:s'); ?></p>
+    <p>Current Date: <?= date('d/m/Y'); ?>.</p>
+    
 </section>
 
-<footer>
-    <form method="post">
-        <button type="submit" name="switch-style">Switch Style</button>
-    </form>
-    <p>&copy; <?php echo date('Y'); ?> Cappee. All rights reserved.</p>
-</footer>
+<section class="weathersection">
 
-</body>
-</html>
+    <?php include 'weather.php'; ?>
+
+</section>
+
+<?php include 'footer.php'; ?>
+
+
+
