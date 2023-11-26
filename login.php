@@ -1,28 +1,42 @@
 <?php
-if (!isset($_SESSION)) {
-	session_start();
-}
+session_start();
+
+$style = isset($_COOKIE["selectedStyle"]) ? $_COOKIE["selectedStyle"] : 0;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta name="viewport" content="width=device-width">
-	<title>RGC - Login</title>
-	<?php
+	<title>Retro Games Catalogue</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.search-box input[type="text"]').on("keyup input", function () {
+				var inputVal = $(this).val();
+				var resultDropdown = $(this).siblings(".result");
 
-	if (isset($_COOKIE["selectedStyle"])) { // if style has been set
-		$style = $_COOKIE["selectedStyle"];
-	} else { // if style not yet set, default to 0
-		$style = 0;
-	}
-	?>
+				if (inputVal.length) {
+					$.get("ajaxsearch.php", { term: inputVal }).done(function (data) {
+						resultDropdown.html(data);
+					});
+				} else {
+					resultDropdown.empty();
+				}
+			});
 
-	<!-- Remember to change the css to work with the selection <link rel="stylesheet" href="css/style<?= $style; ?>.css"> -->
-	<link rel="stylesheet" href="css/style<?= $style; ?>.css">
+			$(document).on("click", ".result p", function () {
+				var searchInput = $(this).parents(".search-box").find('input[type="text"]');
+				searchInput.val($(this).text());
+				$(this).parent(".result").empty();
+			});
+		});
+	</script>
 </head>
 
 <body>
+	<link rel="stylesheet" href="css/style<?= $style; ?>.css">
 	<div class="page-wrapper">
 		<?php include("header.php"); ?>
 
