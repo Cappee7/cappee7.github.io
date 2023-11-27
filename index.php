@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['switch-style'])) {
 
 <section class="othersection">
 
-    <p>Current Date: <?= date('d/m/Y'); ?>.</p>
+    <h3>W.I.P</h3>
     
 </section>
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['switch-style'])) {
 
 </section>
 
-<?php // include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
 
 
 
