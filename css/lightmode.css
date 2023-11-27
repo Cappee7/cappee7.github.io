@@ -30,6 +30,8 @@ header h1 {
 
 /* Nav Bar */
 nav {
+    max-width: 500px; /* Set a maximum width for the navigation bar */
+    margin: 0 auto; /* Center the navigation bar horizontally */
     background-color: #ddd;
     overflow: hidden;
     text-align: center;

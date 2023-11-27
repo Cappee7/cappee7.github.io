@@ -13,19 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['switch-style'])) {
 
 <?php include 'header.php'; ?>
 
-<section class="othersection">
+<section">
 
     <p>Current Date: <?= date('d/m/Y'); ?>.</p>
     
 </section>
 
-<section class="weathersection">
-
-    <?php include 'weather.php'; ?>
-
-</section>
-
 <?php // include 'footer.php'; ?>
-
-
-

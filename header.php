@@ -17,7 +17,8 @@
         </button>
     </form>
     
-<h1 id="typewriter"></h1>
+<!-- <h1 id="typewriter"></h1> -->
+<h1>Cappee.</h1>
 </header>
 
 <?php include 'navbar.php'; ?>
