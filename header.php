@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cappee.</title>
+    <title>TeaHive Chorlton</title>
     <link rel="stylesheet" href="<?php echo $style; ?>">
 </head>
 <body>
@@ -17,8 +17,8 @@
         </button>
     </form>
     
-<!-- <h1 id="typewriter"></h1> -->
-<h1>Cappee.</h1>
+<h1 id="typewriter"></h1>
+<!-- <h1>TeaHive Chorlton.</h1> -->
 </header>
 
 <?php include 'navbar.php'; ?>
@@ -28,7 +28,7 @@
 <script>
     // JavaScript for the typewriter effect
     document.addEventListener('DOMContentLoaded', function () {
-        var typewriterText = "Cappee.";
+        var typewriterText = "TeaHive Chorlton.";
         var element = document.getElementById('typewriter');
         var speed = 100; // Adjust the typing speed (milliseconds per character)
         
